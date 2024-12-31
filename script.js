@@ -328,6 +328,23 @@ canvas.addEventListener("mousedown", function(e) {
     mousedown = true;
 });
 
+// Event untuk perangkat mobile
+canvas.addEventListener("touchmove", function(e) {
+    e.preventDefault();
+    mx = e.touches[0].pageX - canvas.offsetLeft;
+    my = e.touches[0].pageY - canvas.offsetTop;
+}, { passive: false });
+
+canvas.addEventListener("touchstart", function(e) {
+    e.preventDefault();
+    mousedown = true;
+}, { passive: false });
+
+canvas.addEventListener("touchend", function(e) {
+    e.preventDefault();
+    mousedown = false;
+});
+
 canvas.addEventListener("mouseup", function(e) {
     e.preventDefault();
     mousedown = false;
